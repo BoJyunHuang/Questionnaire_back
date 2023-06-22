@@ -27,9 +27,17 @@ public interface QuestionnaireDao extends JpaRepository<Questionnaire, Integer> 
 	// 修改問卷
 	@Transactional
 	@Modifying
-	@Query(value = "update questionnaire set description = :description, status = :status, start_time = :startTime, "
-			+ "end_time = :endTime, question_amount = :questionAmount where title = :title", nativeQuery = true)
-	public int updateQuestionnaire(@Param("title") String title, @Param("description") String description,
-			@Param("status") String status, @Param("startTime") LocalDateTime startTime,
-			@Param("endTime") LocalDateTime endTime, @Param("questionAmount") int questionAmount);
+	@Query(value = "update questionnaire set title = :title, description = :description, status = :status, "
+			+ "start_time = :startTime, end_time = :endTime, question_amount = :questionAmount "
+			+ "where serial_number = :serialNumber", nativeQuery = true)
+	public int updateQuestionnaire(@Param("serialNumber") Integer serialNumber, @Param("title") String title,
+			@Param("description") String description, @Param("status") String status,
+			@Param("startTime") LocalDateTime startTime, @Param("endTime") LocalDateTime endTime,
+			@Param("questionAmount") int questionAmount);
+
+	// 刪除問卷
+	@Transactional
+	@Modifying
+	@Query("delete Questionnaire q where q.serialNumber = :serialNumber")
+	public int deleteQuestionnaire(@Param("serialNumber") Integer serialNumber);
 }

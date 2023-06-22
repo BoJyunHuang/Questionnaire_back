@@ -35,9 +35,9 @@ public class Records {
 	@Column(name = "age")
 	private int age;
 
-	// Questionnaire的標題
-	@Column(name = "title")
-	private String title;
+	// Questionnaire的流水號
+	@Column(name = "qn_number")
+	private int qnNumber;
 
 	// 完成時間
 	@Column(name = "finish_time")
@@ -48,21 +48,19 @@ public class Records {
 	private String answers;
 
 	/*
-	 * 建構方法
-	 * 1.() 
-	 * 2.(name, phoneNumber, email, age, title, finishTime, answers)
+	 * 建構方法 1.() 2.(name, phoneNumber, email, age, qnNumber, finishTime, answers)
 	 */
 	public Records() {
 	}
 
-	public Records(String name, String phoneNumber, String email, int age, String title, LocalDateTime finishTime,
+	public Records(String name, String phoneNumber, String email, int age, int qnNumber, LocalDateTime finishTime,
 			String answers) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.age = age;
-		this.title = title;
+		this.qnNumber = qnNumber;
 		this.finishTime = finishTime;
 		this.answers = answers;
 	}
@@ -104,12 +102,12 @@ public class Records {
 		this.age = age;
 	}
 
-	public String getTitle() {
-		return title;
+	public int getQnNumber() {
+		return qnNumber;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQnNumber(int qnNumber) {
+		this.qnNumber = qnNumber;
 	}
 
 	public LocalDateTime getFinishTime() {
@@ -127,5 +125,5 @@ public class Records {
 	public void setAnswers(String answers) {
 		this.answers = answers;
 	}
-	
+
 }

@@ -10,7 +10,8 @@ public class QuestionsRequest {
 	// 屬性
 	@JsonProperty("serial_number")
 	private Integer serialNumber;
-	private String title;
+	@JsonProperty("qn_number")
+	private int qnNumber;
 	private int number;
 	private String kind;
 	@JsonProperty("not_empty")
@@ -19,6 +20,8 @@ public class QuestionsRequest {
 	private String selection;
 	@JsonProperty("questions_list")
 	private List<Questions> questionsList;
+	@JsonProperty("serial_number_list")
+	private List<Integer> serialNumberList;
 	
 	// getters & setters
 	public Integer getSerialNumber() {
@@ -27,11 +30,11 @@ public class QuestionsRequest {
 	public void setSerialNumber(Integer serialNumber) {
 		this.serialNumber = serialNumber;
 	}
-	public String getTitle() {
-		return title;
+	public int getQnNumber() {
+		return qnNumber;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQnNumber(int qnNumber) {
+		this.qnNumber = qnNumber;
 	}
 	public int getNumber() {
 		return number;
@@ -68,6 +71,12 @@ public class QuestionsRequest {
 	}
 	public void setQuestionsList(List<Questions> questionsList) {
 		this.questionsList = questionsList;
+	}
+	public List<Integer> getSerialNumberList() {
+		return serialNumberList;
+	}
+	public void setSerialNumberList(List<Integer> serialNumberList) {
+		this.serialNumberList = serialNumberList;
 	}
 	
 }

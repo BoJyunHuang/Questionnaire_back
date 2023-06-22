@@ -17,9 +17,9 @@ public class Questions {
 	@Column(name = "serial_number")
 	private Integer serialNumber;
 
-	// Questionnaire的標題
-	@Column(name = "title")
-	private String title;
+	// Questionnaire的流水號
+	@Column(name = "qn_number")
+	private int qnNumber;
 
 	// 題號
 	@Column(name = "number")
@@ -49,9 +49,9 @@ public class Questions {
 	public Questions() {
 	}
 
-	public Questions(String title, int number, String kind, boolean notEmpty, String question, String selection) {
+	public Questions(int qnNumber, int number, String kind, boolean notEmpty, String question, String selection) {
 		super();
-		this.title = title;
+		this.qnNumber = qnNumber;
 		this.number = number;
 		this.kind = kind;
 		this.notEmpty = notEmpty;
@@ -64,12 +64,12 @@ public class Questions {
 		return serialNumber;
 	}
 
-	public String getTitle() {
-		return title;
+	public int getQnNumber() {
+		return qnNumber;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQnNumber(int qnNumber) {
+		this.qnNumber = qnNumber;
 	}
 
 	public int getNumber() {

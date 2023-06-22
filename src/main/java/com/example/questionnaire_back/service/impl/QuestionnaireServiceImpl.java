@@ -37,15 +37,20 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
 	@Override
 	public QuestionnaireResponse reviseQuestionnaire(QuestionnaireRequest request) {
-		return questionnaireDao.updateQuestionnaire(request.getTitle(), request.getDescription(), request.getStatus(),
-				request.getStartTime(), request.getEndTime(), request.getQuestionAmount()) == 0
-				? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
-				: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage());
+		return request != null && request.getSerialNumber() != null
+				? (questionnaireDao.updateQuestionnaire(request.getSerialNumber(), request.getTitle(),
+						request.getDescription(), request.getStatus(), request.getStartTime(), request.getEndTime(),
+						request.getQuestionAmount()) == 0 ? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
+								: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()))
+				: new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage());
 	}
 
 	@Override
 	public QuestionnaireResponse deleteQuestionnaire(QuestionnaireRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		return request != null && request.getSerialNumber() != null
+				? (questionnaireDao.deleteQuestionnaire(request.getSerialNumber()) == 0
+						? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
+						: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()))
+				: new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage());
 	}
 }

@@ -14,7 +14,8 @@ public class RecordsRequest {
 	private String phoneNumber;
 	private String email;
 	private int age;
-	private String title;
+	@JsonProperty("qn_number")
+	private int qnNumber;
 	@JsonProperty("finish_time")
 	private LocalDateTime finishTime;
 	private String answers;
@@ -50,11 +51,11 @@ public class RecordsRequest {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getTitle() {
-		return title;
+	public int getQnNumber() {
+		return qnNumber;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQnNumber(int qnNumber) {
+		this.qnNumber = qnNumber;
 	}
 	public LocalDateTime getFinishTime() {
 		return finishTime;

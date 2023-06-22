@@ -51,7 +51,7 @@ public class Controller {
 		return questionnaireService.deleteQuestionnaire(request);
 	};
 
-	// 新增問題集
+	// 新增/修改問題集
 	@PostMapping(value = "add_questions")
 	public QuestionsResponse addQuestions(QuestionsRequest request) {
 		return questionsService.addQuestions(request);
@@ -61,12 +61,6 @@ public class Controller {
 	@PostMapping(value = "show_questions")
 	public QuestionsResponse showQuestions(QuestionsRequest request) {
 		return questionsService.showQuestions(request);
-	};
-
-	// 修改該問卷問題集
-	@PostMapping(value = "revise_questions")
-	public QuestionsResponse reviseQuestions(QuestionsRequest request) {
-		return questionsService.reviseQuestions(request);
 	};
 
 	// 刪除問題集
