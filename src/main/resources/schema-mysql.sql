@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `questionnaire`.`questionnaire` (
+CREATE TABLE IF NOT EXISTS `questionnaire_back`.`questionnaire` (
   `serial_number` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
   `description` VARCHAR(150) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `questionnaire`.`questionnaire` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `questionnaire`.`questions` (
+CREATE TABLE `questionnaire_back`.`questions` (
   `serial_number` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
   `number` INT NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `questionnaire`.`questions` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE `questionnaire`.`records` (
+CREATE TABLE `questionnaire_back`.`records` (
   `serial_number` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `phone_number` VARCHAR(20) NOT NULL,
