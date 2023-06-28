@@ -51,7 +51,6 @@ public class Records {
 	 * 建構方法 
 	 * 1.() 
 	 * 2.(name, phoneNumber, email, age, qnNumber, finishTime, answers)
-	 * 2.(serialNumber, name, phoneNumber, email, age, qnNumber, finishTime, answers)
 	 */
 	public Records() {
 	}
@@ -59,19 +58,6 @@ public class Records {
 	public Records(String name, String phoneNumber, String email, int age, int qnNumber, LocalDateTime finishTime,
 			String answers) {
 		super();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.age = age;
-		this.qnNumber = qnNumber;
-		this.finishTime = finishTime;
-		this.answers = answers;
-	}
-
-	public Records(Integer serialNumber, String name, String phoneNumber, String email, int age, int qnNumber,
-			LocalDateTime finishTime, String answers) {
-		super();
-		this.serialNumber = serialNumber;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;

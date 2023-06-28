@@ -47,7 +47,6 @@ public class Questionnaire {
 	 * 建構方法
 	 * 1.() 
 	 * 2.(title, description, status, startTime, endTime, questionAmount)
-	 * 3.(serialNumber, title, description, status, startTime, endTime, questionAmount)
 	 */
 	public Questionnaire() {
 	}
@@ -55,18 +54,6 @@ public class Questionnaire {
 	public Questionnaire(String title, String description, String status, LocalDateTime startTime,
 			LocalDateTime endTime, int questionAmount) {
 		super();
-		this.title = title;
-		this.description = description;
-		this.status = status;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.questionAmount = questionAmount;
-	}
-
-	public Questionnaire(Integer serialNumber, String title, String description, String status, LocalDateTime startTime,
-			LocalDateTime endTime, int questionAmount) {
-		super();
-		this.serialNumber = serialNumber;
 		this.title = title;
 		this.description = description;
 		this.status = status;

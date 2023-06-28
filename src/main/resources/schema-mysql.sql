@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS `questionnaire_back`.`questionnaire` (
   `description` VARCHAR(150) NOT NULL,
   `status` VARCHAR(20) NOT NULL,
   `start_time` DATETIME NOT NULL,
-  `end_time` DATETIME NOT NULL,
-  `question_amount` INT NOT NULL,
+  `end_time` DATETIME NULL,
+  `question_amount` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`serial_number`));
 
 CREATE TABLE IF NOT EXISTS `questionnaire_back`.`questions` (

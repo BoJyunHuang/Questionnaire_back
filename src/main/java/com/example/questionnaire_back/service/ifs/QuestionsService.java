@@ -1,16 +1,18 @@
 package com.example.questionnaire_back.service.ifs;
 
-import com.example.questionnaire_back.vo.QuestionsRequest;
+import java.util.List;
+
+import com.example.questionnaire_back.entity.Questions;
 import com.example.questionnaire_back.vo.QuestionsResponse;
 
 public interface QuestionsService {
 	
 	// 新增/修改問題集
-	public QuestionsResponse addQuestions(QuestionsRequest request);
+	public QuestionsResponse addQuestions(List<Questions> questionsList);
 	
 	// 顯示該問卷問題集
-	public QuestionsResponse showQuestions(QuestionsRequest request);
+	public QuestionsResponse showQuestions(int qnNumber);
 	
 	// 刪除問題集
-	public QuestionsResponse deleteQuestions(QuestionsRequest request);
+	public QuestionsResponse deleteQuestions(List<Integer> serialNumberList);
 }

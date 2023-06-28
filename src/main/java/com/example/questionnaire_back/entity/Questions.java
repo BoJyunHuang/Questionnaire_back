@@ -45,25 +45,12 @@ public class Questions {
 	 * 建構方法
 	 * 1.() 
 	 * 2.(title, number, kind, notEmpty, question, selection)
-	 * 3.(serialNumber, title, number, kind, notEmpty, question, selection)
 	 */
 	public Questions() {
 	}
 
 	public Questions(int qnNumber, int number, String kind, boolean notEmpty, String question, String selection) {
 		super();
-		this.qnNumber = qnNumber;
-		this.number = number;
-		this.kind = kind;
-		this.notEmpty = notEmpty;
-		this.question = question;
-		this.selection = selection;
-	}
-
-	public Questions(Integer serialNumber, int qnNumber, int number, String kind, boolean notEmpty, String question,
-			String selection) {
-		super();
-		this.serialNumber = serialNumber;
 		this.qnNumber = qnNumber;
 		this.number = number;
 		this.kind = kind;

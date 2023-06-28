@@ -18,11 +18,11 @@ public interface QuestionnaireDao extends JpaRepository<Questionnaire, Integer> 
 	@Transactional
 	@Modifying
 	@Query(value = "insert into questionnaire (title, description, status, start_time, end_time, question_amount) "
-			+ "select :title, :description, :status, :startTime, :endTime, :questionAmount "
+			+ "select :title, :description, :status, :startTime, :endTime, 0 "
 			+ "where not exists (select 1 from questionnaire where title = :title)", nativeQuery = true)
 	public int insertQuestionnaire(@Param("title") String title, @Param("description") String description,
 			@Param("status") String status, @Param("startTime") LocalDateTime startTime,
-			@Param("endTime") LocalDateTime endTime, @Param("questionAmount") int questionAmount);
+			@Param("endTime") LocalDateTime endTime);
 
 	// 修改問卷
 	@Transactional
