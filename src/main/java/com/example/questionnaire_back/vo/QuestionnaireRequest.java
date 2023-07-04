@@ -1,6 +1,6 @@
 package com.example.questionnaire_back.vo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,13 +11,10 @@ public class QuestionnaireRequest {
 	private Integer serialNumber;
 	private String title;
 	private String description;
-	private String status;
-	@JsonProperty("start_time")
-	private LocalDateTime startTime;
-	@JsonProperty("end_time")
-	private LocalDateTime endTime;
-	@JsonProperty("question_amount")
-	private Integer questionAmount;
+	@JsonProperty("start_date")
+	private LocalDate startDate;
+	@JsonProperty("end_date")
+	private LocalDate endDate;
 	
 	// getters & setters	
 	public Integer getSerialNumber() {
@@ -38,29 +35,17 @@ public class QuestionnaireRequest {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStatus() {
-		return status;
+	public LocalDate getStartDate() {
+		return startDate;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
-	public LocalDateTime getStartTime() {
-		return startTime;
+	public LocalDate getEndDate() {
+		return endDate;
 	}
-	public void setStartTime(LocalDateTime startTime) {
-		this.startTime = startTime;
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
-	public LocalDateTime getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
-	}
-	public Integer getQuestionAmount() {
-		return questionAmount;
-	}
-	public void setQuestionAmount(Integer questionAmount) {
-		this.questionAmount = questionAmount;
-	}
-	
+		
 }

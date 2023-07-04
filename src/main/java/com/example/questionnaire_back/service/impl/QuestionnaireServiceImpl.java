@@ -1,12 +1,13 @@
 package com.example.questionnaire_back.service.impl;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.example.questionnaire_back.constants.RtnCode;
+import com.example.questionnaire_back.entity.Questionnaire;
 import com.example.questionnaire_back.repository.QuestionnaireDao;
 import com.example.questionnaire_back.service.ifs.QuestionnaireService;
 import com.example.questionnaire_back.vo.QuestionnaireResponse;
@@ -23,24 +24,23 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 	}
 
 	@Override
-	public QuestionnaireResponse addQuestionnaire(String title, String description, LocalDateTime startTime,
-			LocalDateTime endTime) {
-		if (!StringUtils.hasText(title) || !StringUtils.hasText(description) || startTime == null
-				|| startTime.isBefore(LocalDateTime.now())) {
-			return new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage());
+	public QuestionnaireResponse addQuestionnaire(String title, String description, LocalDate startDate,
+			LocalDate endDate) {
+		if (!StringUtils.hasText(title) || !StringUtils.hasText(description) || startDate == null || endDate == null
+				|| startDate.isBefore(LocalDate.now()) || endDate.isBefore(startDate)) {
+			return new QuestionnaireResponse(RtnCode.INCORRECT.getMessage());
 		}
-		return questionnaireDao.insertQuestionnaire(title, description, "尚未開始", startTime, endTime) == 0
-				? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
-				: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage());
+		Questionnaire qn = new Questionnaire(title, description, startDate, endDate);
+		return new QuestionnaireResponse(RtnCode.SUCCESS.getMessage(), questionnaireDao.save(qn));
 	}
 
 	@Override
 	public QuestionnaireResponse reviseQuestionnaire(Integer serialNumber, String title, String description,
-			String status, LocalDateTime startTime, LocalDateTime endTime, int questionAmount) {
+			LocalDate startDate, LocalDate endDate) {
 		return serialNumber != null
-				? (questionnaireDao.updateQuestionnaire(serialNumber, title, description, status, startTime, endTime,
-						questionAmount) == 0 ? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
-								: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()))
+				? (questionnaireDao.updateQuestionnaire(serialNumber, title, description, startDate, endDate) == 0
+						? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
+						: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()))
 				: new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage());
 	}
 

@@ -39,15 +39,14 @@ public class Controller {
 	@PostMapping(value = "add_questionnaire")
 	public QuestionnaireResponse addQuestionnaire(@RequestBody QuestionnaireRequest request) {
 		return questionnaireService.addQuestionnaire(request.getTitle(), request.getDescription(),
-				request.getStartTime(), request.getEndTime());
+				request.getStartDate(), request.getEndDate());
 	};
 
 	// 修改問卷
 	@PostMapping(value = "revise_questionnaire")
 	public QuestionnaireResponse reviseQuestionnaire(@RequestBody QuestionnaireRequest request) {
 		return questionnaireService.reviseQuestionnaire(request.getSerialNumber(), request.getTitle(),
-				request.getDescription(), request.getStatus(), request.getStartTime(), request.getEndTime(),
-				request.getQuestionAmount());
+				request.getDescription(), request.getStartDate(), request.getEndDate());
 	};
 
 	// 刪除問卷
@@ -56,10 +55,17 @@ public class Controller {
 		return questionnaireService.deleteQuestionnaire(request.getSerialNumber());
 	};
 
-	// 新增/修改問題集
+	// 新增問題集
 	@PostMapping(value = "add_questions")
 	public QuestionsResponse addQuestions(@RequestBody QuestionsRequest request) {
 		return questionsService.addQuestions(request.getQuestionsList());
+	};
+
+	// 修改問題集
+	@PostMapping(value = "revise_question")
+	public QuestionsResponse reviseQuestion(@RequestBody QuestionsRequest request) {
+		return questionsService.reviseQuestion(request.getSerialNumber(), request.getQuestion(), request.getKind(),
+				request.isRequired(), request.getSelections());
 	};
 
 	// 顯示該問卷問題集
@@ -72,6 +78,12 @@ public class Controller {
 	@DeleteMapping(value = "delete_questions")
 	public QuestionsResponse deleteQuestions(@RequestBody QuestionsRequest request) {
 		return questionsService.deleteQuestions(request.getSerialNumberList());
+	};
+
+	// 刪除問卷問題集
+	@DeleteMapping(value = "delete_qn_questions")
+	public QuestionsResponse deleteQnQuestions(@RequestBody QuestionsRequest request) {
+		return questionsService.deleteQnQuestions(request.getQnNumber());
 	};
 
 	// 新增使用者回答

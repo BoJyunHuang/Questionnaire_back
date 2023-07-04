@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class QuestionsResponse {
 
 	// 屬性
-	private String messgage;
+	private String message;
 	@JsonProperty("questions_list")
 	private List<Questions> questionsList;
 	
@@ -21,24 +21,24 @@ public class QuestionsResponse {
 	public QuestionsResponse() {
 	}
 
-	public QuestionsResponse(String messgage) {
+	public QuestionsResponse(String message) {
 		super();
-		this.messgage = messgage;
+		this.message = message;
 	}
 
-	public QuestionsResponse(String messgage, List<Questions> questionsList) {
+	public QuestionsResponse(String message, List<Questions> questionsList) {
 		super();
-		this.messgage = messgage;
+		this.message = message;
 		this.questionsList = questionsList;
 	}
 
 	// getters & setters
-	public String getMessgage() {
-		return messgage;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMessgage(String messgage) {
-		this.messgage = messgage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public List<Questions> getQuestionsList() {

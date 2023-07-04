@@ -1,6 +1,6 @@
 package com.example.questionnaire_back.service.ifs;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.example.questionnaire_back.vo.QuestionnaireResponse;
 
@@ -10,12 +10,12 @@ public interface QuestionnaireService {
 	public QuestionnaireResponse showAllQuestionnaires();
 
 	// 新增問卷
-	public QuestionnaireResponse addQuestionnaire(String title, String description, LocalDateTime startTime,
-			LocalDateTime endTime);
+	public QuestionnaireResponse addQuestionnaire(String title, String description, LocalDate startDate,
+			LocalDate endDate);
 
 	// 修改問卷
 	public QuestionnaireResponse reviseQuestionnaire(Integer serialNumber, String title, String description,
-			String status, LocalDateTime startTime, LocalDateTime endTime, int questionAmount);
+			LocalDate startDate, LocalDate endDate);
 
 	// 刪除問卷
 	public QuestionnaireResponse deleteQuestionnaire(Integer serialNumber);

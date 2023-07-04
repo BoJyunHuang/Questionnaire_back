@@ -25,6 +25,16 @@ public class QuestionsServiceImpl implements QuestionsService {
 	}
 
 	@Override
+	public QuestionsResponse reviseQuestion(Integer serialNumber, String question, String kind, boolean isRequired,
+			String selections) {
+		return serialNumber != null
+				? (questionsDao.updateQuestion(serialNumber, question, kind, isRequired, selections) == 1
+						? new QuestionsResponse(RtnCode.SUCCESS.getMessage())
+						: new QuestionsResponse(RtnCode.INCORRECT.getMessage()))
+				: new QuestionsResponse(RtnCode.CANNOT_EMPTY.getMessage());
+	}
+
+	@Override
 	public QuestionsResponse showQuestions(int qnNumber) {
 		return qnNumber <= 0 ? new QuestionsResponse(RtnCode.CANNOT_EMPTY.getMessage())
 				: new QuestionsResponse(RtnCode.SUCCESS.getMessage(), questionsDao.searchQuestions(qnNumber));
@@ -36,6 +46,14 @@ public class QuestionsServiceImpl implements QuestionsService {
 				: (questionsDao.deleteQuestions(serialNumberList) != serialNumberList.size()
 						? new QuestionsResponse(RtnCode.INCORRECT.getMessage())
 						: new QuestionsResponse(RtnCode.SUCCESS.getMessage()));
+	}
+
+	@Override
+	public QuestionsResponse deleteQnQuestions(int qnNumber) {
+		return qnNumber > 0
+				? (questionsDao.deleteQnQuestions(qnNumber) > 0 ? new QuestionsResponse(RtnCode.SUCCESS.getMessage())
+						: new QuestionsResponse(RtnCode.INCORRECT.getMessage()))
+				: new QuestionsResponse(RtnCode.CANNOT_EMPTY.getMessage());
 	}
 
 }

@@ -9,6 +9,7 @@ public class QuestionnaireResponse {
 
 	// 屬性
 	private String message;
+	private Questionnaire questionnaire;
 	@JsonProperty("questionnaire_list")
 	private List<Questionnaire> questionnaireList;
 
@@ -17,6 +18,7 @@ public class QuestionnaireResponse {
 	 * 1.()
 	 * 2.(message)
 	 * 3.(message, questionnaire)
+	 * 4.(message, questionnaireList)
 	 */
 	public QuestionnaireResponse() {
 	}
@@ -24,6 +26,12 @@ public class QuestionnaireResponse {
 	public QuestionnaireResponse(String message) {
 		super();
 		this.message = message;
+	}
+
+	public QuestionnaireResponse(String message, Questionnaire questionnaire) {
+		super();
+		this.message = message;
+		this.questionnaire = questionnaire;
 	}
 
 	public QuestionnaireResponse(String message, List<Questionnaire> questionnaireList) {
@@ -39,6 +47,14 @@ public class QuestionnaireResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public Questionnaire getQuestionnaire() {
+		return questionnaire;
+	}
+
+	public void setQuestionnaire(Questionnaire questionnaire) {
+		this.questionnaire = questionnaire;
 	}
 
 	public List<Questionnaire> getQuestionnaireList() {

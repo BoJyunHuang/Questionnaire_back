@@ -1,6 +1,6 @@
 package com.example.questionnaire_back.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,39 +27,28 @@ public class Questionnaire {
 	@Column(name = "description")
 	private String description;
 
-	// 狀態
-	@Column(name = "status")
-	private String status;
-
 	// 開始時間
-	@Column(name = "start_time")
-	private LocalDateTime startTime;
+	@Column(name = "start_date")
+	private LocalDate startDate;
 
 	// 結束時間
-	@Column(name = "end_time")
-	private LocalDateTime endTime;
-
-	// 題目數量
-	@Column(name = "question_amount")
-	private int questionAmount;
+	@Column(name = "end_date")
+	private LocalDate endDate;
 
 	/*
-	 * 建構方法
+	 * 建構方法 
 	 * 1.() 
-	 * 2.(title, description, status, startTime, endTime, questionAmount)
+	 * 2.(title, description, startDate, endDate)
 	 */
 	public Questionnaire() {
 	}
 
-	public Questionnaire(String title, String description, String status, LocalDateTime startTime,
-			LocalDateTime endTime, int questionAmount) {
+	public Questionnaire(String title, String description, LocalDate startDate, LocalDate endDate) {
 		super();
 		this.title = title;
 		this.description = description;
-		this.status = status;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.questionAmount = questionAmount;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	// getters & setters
@@ -83,36 +72,20 @@ public class Questionnaire {
 		this.description = description;
 	}
 
-	public String getStatus() {
-		return status;
+	public LocalDate getStartDate() {
+		return startDate;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 
-	public LocalDateTime getStartTime() {
-		return startTime;
+	public LocalDate getEndDate() {
+		return endDate;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
-		this.startTime = startTime;
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 
-	public LocalDateTime getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
-	}
-
-	public int getQuestionAmount() {
-		return questionAmount;
-	}
-
-	public void setQuestionAmount(int questionAmount) {
-		this.questionAmount = questionAmount;
-	}
-	
 }
