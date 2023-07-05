@@ -36,15 +36,15 @@ public class Questionnaire {
 	private LocalDate endDate;
 
 	/*
-	 * 建構方法 
-	 * 1.() 
-	 * 2.(title, description, startDate, endDate)
+	 * 建構方法 1.() 2.(serialNumber, title, description, startDate, endDate)
 	 */
 	public Questionnaire() {
 	}
 
-	public Questionnaire(String title, String description, LocalDate startDate, LocalDate endDate) {
+	public Questionnaire(Integer serialNumber, String title, String description, LocalDate startDate,
+			LocalDate endDate) {
 		super();
+		this.serialNumber = serialNumber;
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;

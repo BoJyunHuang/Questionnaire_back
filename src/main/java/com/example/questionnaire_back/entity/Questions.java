@@ -38,22 +38,22 @@ public class Questions {
 	private String selections;
 
 	/*
-	 * 建構方法 
-	 * 1.() 
-	 * 2.(qnNumber, question, kind, isRequired, selections)
+	 * 建構方法 1.() 2.(serialNumber, qnNumber, question, kind, isRequired, selections)
 	 */
 	public Questions() {
 	}
 
-	public Questions(int qnNumber, String question, String kind, boolean isRequired, String selections) {
+	public Questions(Integer serialNumber, int qnNumber, String question, String kind, boolean isRequired,
+			String selections) {
 		super();
+		this.serialNumber = serialNumber;
 		this.qnNumber = qnNumber;
 		this.question = question;
 		this.kind = kind;
 		this.isRequired = isRequired;
 		this.selections = selections;
 	}
-	
+
 	// getters & setters
 	public Integer getSerialNumber() {
 		return serialNumber;
@@ -97,6 +97,6 @@ public class Questions {
 
 	public void setSelections(String selections) {
 		this.selections = selections;
-	}	
-	
+	}
+
 }
