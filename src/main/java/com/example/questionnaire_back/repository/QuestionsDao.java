@@ -21,8 +21,8 @@ public interface QuestionsDao extends JpaRepository<Questions, Integer> {
 	// 刪除資料
 	@Transactional
 	@Modifying
-	@Query("delete Questions q where q.serialNumber in :serialNumberList or q.qnNumber = :qnNumber")
+	@Query("delete Questions q where q.serialNumber in :serialNumberList or q.qnNumber in :qnNumberList")
 	public int deleteQuestions(@Param("serialNumberList") List<Integer> serialNumberList,
-			@Param("qnNumber") int qnNumber);
+			@Param("qnNumberList") List<Integer> qnNumberList);
 
 }

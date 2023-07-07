@@ -26,6 +26,6 @@ public interface RecordsDao extends JpaRepository<Records, Integer> {
 			@Param("finishTime") LocalDateTime finishTime, @Param("answers") String answers);
 
 	// 尋找回答
-	@Query(value = "select * from records where qn_number = :qnNumber", nativeQuery = true)
+	@Query(value = "select * from records where qn_number = :qnNumber order by serial_number desc", nativeQuery = true)
 	public List<Records> searchRecords(@Param("qnNumber") int qnNumber);
 }

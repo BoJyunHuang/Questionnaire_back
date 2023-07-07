@@ -1,6 +1,7 @@
 package com.example.questionnaire_back.service.ifs;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.example.questionnaire_back.vo.QuestionnaireResponse;
 
@@ -14,5 +15,5 @@ public interface QuestionnaireService {
 			LocalDate startDate, LocalDate endDate);
 
 	// 刪除問卷
-	public QuestionnaireResponse deleteQuestionnaire(Integer serialNumber);
+	public QuestionnaireResponse deleteQuestionnaire(List<Integer> serialNumberList);
 }

@@ -1,6 +1,7 @@
 package com.example.questionnaire_back.vo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,6 +16,8 @@ public class QuestionnaireRequest {
 	private LocalDate startDate;
 	@JsonProperty("end_date")
 	private LocalDate endDate;
+	@JsonProperty("serial_number_list")
+	private List<Integer> serialNumberList;
 	
 	// getters & setters	
 	public Integer getSerialNumber() {
@@ -46,6 +49,12 @@ public class QuestionnaireRequest {
 	}
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
+	}
+	public List<Integer> getSerialNumberList() {
+		return serialNumberList;
+	}
+	public void setSerialNumberList(List<Integer> serialNumberList) {
+		this.serialNumberList = serialNumberList;
 	}
 		
 }

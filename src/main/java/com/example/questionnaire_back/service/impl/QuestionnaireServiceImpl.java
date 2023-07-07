@@ -1,9 +1,11 @@
 package com.example.questionnaire_back.service.impl;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import com.example.questionnaire_back.constants.RtnCode;
@@ -36,11 +38,11 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 	}
 
 	@Override
-	public QuestionnaireResponse deleteQuestionnaire(Integer serialNumber) {
-		return serialNumber != null
-				? (questionnaireDao.deleteQuestionnaire(serialNumber) == 0
+	public QuestionnaireResponse deleteQuestionnaire(List<Integer> serialNumberList) {
+		return CollectionUtils.isEmpty(serialNumberList) ? new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage())
+				: (questionnaireDao.deleteQuestionnaire(serialNumberList) == 0
 						? new QuestionnaireResponse(RtnCode.INCORRECT.getMessage())
-						: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()))
-				: new QuestionnaireResponse(RtnCode.CANNOT_EMPTY.getMessage());
+						: new QuestionnaireResponse(RtnCode.SUCCESS.getMessage()));
+
 	}
 }

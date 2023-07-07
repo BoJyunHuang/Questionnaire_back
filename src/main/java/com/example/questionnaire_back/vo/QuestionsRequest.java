@@ -14,6 +14,8 @@ public class QuestionsRequest {
 	private List<Questions> questionsList;
 	@JsonProperty("serial_number_list")
 	private List<Integer> serialNumberList;
+	@JsonProperty("qn_number_list")
+	private List<Integer> qnNumberList;
 
 	// getters & setters
 	public int getQnNumber() {
@@ -38,6 +40,14 @@ public class QuestionsRequest {
 
 	public void setSerialNumberList(List<Integer> serialNumberList) {
 		this.serialNumberList = serialNumberList;
+	}
+
+	public List<Integer> getQnNumberList() {
+		return qnNumberList;
+	}
+
+	public void setQnNumberList(List<Integer> qnNumberList) {
+		this.qnNumberList = qnNumberList;
 	}
 
 }

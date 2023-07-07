@@ -45,7 +45,7 @@ public class Controller {
 	// 刪除問卷
 	@DeleteMapping(value = "delete_questionnaire")
 	public QuestionnaireResponse deleteQuestionnaire(@RequestBody QuestionnaireRequest request) {
-		return questionnaireService.deleteQuestionnaire(request.getSerialNumber());
+		return questionnaireService.deleteQuestionnaire(request.getSerialNumberList());
 	};
 
 	// 新增問題集
@@ -63,7 +63,7 @@ public class Controller {
 	// 刪除問題集
 	@DeleteMapping(value = "delete_questions")
 	public QuestionsResponse deleteQuestions(@RequestBody QuestionsRequest request) {
-		return questionsService.deleteQuestions(request.getSerialNumberList(), request.getQnNumber());
+		return questionsService.deleteQuestions(request.getSerialNumberList(), request.getQnNumberList());
 	};
 
 	// 新增使用者回答

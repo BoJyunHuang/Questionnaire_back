@@ -14,5 +14,5 @@ public interface QuestionsService {
 	public QuestionsResponse showQuestions(int qnNumber);
 
 	// 刪除問題集
-	public QuestionsResponse deleteQuestions(List<Integer> serialNumberList, int qnNumber);
+	public QuestionsResponse deleteQuestions(List<Integer> serialNumberList, List<Integer> qnNumberList);
 }

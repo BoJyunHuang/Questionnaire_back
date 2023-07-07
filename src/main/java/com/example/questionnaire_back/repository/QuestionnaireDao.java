@@ -1,5 +1,7 @@
 package com.example.questionnaire_back.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +17,6 @@ public interface QuestionnaireDao extends JpaRepository<Questionnaire, Integer> 
 	// 刪除問卷
 	@Transactional
 	@Modifying
-	@Query("delete Questionnaire q where q.serialNumber = :serialNumber")
-	public int deleteQuestionnaire(@Param("serialNumber") Integer serialNumber);
+	@Query("delete Questionnaire q where q.serialNumber in :serialNumberList")
+	public int deleteQuestionnaire(@Param("serialNumberList") List<Integer> serialNumberList);
 }

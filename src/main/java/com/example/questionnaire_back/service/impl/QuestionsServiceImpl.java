@@ -31,9 +31,10 @@ public class QuestionsServiceImpl implements QuestionsService {
 	}
 
 	@Override
-	public QuestionsResponse deleteQuestions(List<Integer> serialNumberList, int qnNumber) {
+	public QuestionsResponse deleteQuestions(List<Integer> serialNumberList, List<Integer> qnNumberList) {
 		return questionsDao.deleteQuestions(CollectionUtils.isEmpty(serialNumberList) ? null : serialNumberList,
-				qnNumber < 1 ? 0 : qnNumber) == 0 ? new QuestionsResponse(RtnCode.INCORRECT.getMessage())
+				CollectionUtils.isEmpty(qnNumberList) ? null : qnNumberList) == 0
+						? new QuestionsResponse(RtnCode.INCORRECT.getMessage())
 						: new QuestionsResponse(RtnCode.SUCCESS.getMessage());
 	}
 

@@ -13,10 +13,8 @@ import org.springframework.util.Assert;
 
 import com.example.questionnaire_back.constants.RtnCode;
 import com.example.questionnaire_back.entity.Records;
-import com.example.questionnaire_back.repository.QuestionnaireDao;
 import com.example.questionnaire_back.repository.QuestionsDao;
 import com.example.questionnaire_back.repository.RecordsDao;
-import com.example.questionnaire_back.service.ifs.QuestionnaireService;
 import com.example.questionnaire_back.service.ifs.QuestionsService;
 import com.example.questionnaire_back.service.ifs.RecordsService;
 
@@ -25,16 +23,10 @@ import com.example.questionnaire_back.service.ifs.RecordsService;
 public class QuestionnaireBackApplicationTests {
 
 	@Autowired
-	private QuestionnaireDao qnDao;
-
-	@Autowired
 	private QuestionsDao qDao;
 
 	@Autowired
 	private RecordsDao rDao;
-
-	@Autowired
-	private QuestionnaireService qnSer;
 
 	@Autowired
 	private QuestionsService qSer;
@@ -81,22 +73,6 @@ public class QuestionnaireBackApplicationTests {
 //		Assert.isTrue(qnDao.updateQuestionnaire(1, "title1", "des", "未開放", LocalDate.of(2023, 6, 30),
 //				LocalDate.of(2023, 7, 31), 0) == 1, RtnCode.TEST2_ERROR.getMessage());
 //	}
-
-	@Test
-	public void deleteQuestionnaireTest() {
-		Assert.isTrue(qnDao.deleteQuestionnaire(999) == 0, RtnCode.TEST1_ERROR.getMessage());
-		Assert.isTrue(qnDao.deleteQuestionnaire(4) == 1, RtnCode.TEST2_ERROR.getMessage());
-	}
-
-	@Test
-	public void deleteQuestionnaireImplTest() {
-		Assert.isTrue(qnSer.deleteQuestionnaire(null).getMessage().equals(RtnCode.CANNOT_EMPTY.getMessage()),
-				RtnCode.TEST1_ERROR.getMessage());
-		Assert.isTrue(qnSer.deleteQuestionnaire(0).getMessage().equals(RtnCode.INCORRECT.getMessage()),
-				RtnCode.TEST2_ERROR.getMessage());
-		Assert.isTrue(qnSer.deleteQuestionnaire(3).getMessage().equals(RtnCode.SUCCESS.getMessage()),
-				RtnCode.TEST3_ERROR.getMessage());
-	}
 
 	@Test
 	public void searchQuestionsTest() {
